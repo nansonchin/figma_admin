@@ -1,0 +1,33 @@
+{
+  "name": "testAdmin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@chakra-ui/media-query": "^3.2.8",
+    "@img-comparison-slider/vue": "^7.7.0",
+    "bootstrap": "^5.2.2",
+    "bootstrap-vue-3": "^0.4.8",
+    "element-plus": "^2.2.21",
+    "jquery": "^3.6.1",
+    "svelte-scrollto": "^0.2.0",
+    "swiper": "^8.4.7",
+    "vue": "^3.5.12",
+    "vue-compare-image": "^0.2.0",
+    "vue-i18n": "^9.1.7",
+    "vue-next-breakpoints": "^1.0.1",
+    "vue-router": "^4.1.6",
+    "vue-scrollto": "^2.20.0",
+    "vue3-transitions": "^1.0.0",
+    "web-animations-js": "^2.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.2.0",
+    "vite": "^3.2.3"
+  }
+}
