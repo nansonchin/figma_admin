@@ -27,3 +27,11 @@
 .bold{
     font-weight: bold;
 }
+
+.rotate-90{
+    transform: rotate(90deg);
+}
+.rotate-180{
+    transform: rotate(180deg);
+    transition: transform 0.3s ease-in-out;
+}
