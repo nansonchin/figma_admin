@@ -20,6 +20,7 @@ import '@/assets/css/color.css'
 import '@/assets/css/login.css'
 import '@/assets/css/responsive.css'
 import '@/assets/css/sidemenu.css'
+import '@/assets/css/topmenu.css'
 
 const app = createApp(App)
 app.use(i18n)

@@ -12,13 +12,21 @@
     height: 100vh;
 }
 
+.el-menu-vertical-demo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
 .side-menu-container{
     height: 100vh!important;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidemenu-text-collapse-container{
     display: flex;
-    gap: 5px;
+    /* gap: 5px; */
     padding: 20px var(--el-menu-base-level-padding);
 }
 
@@ -37,7 +45,7 @@
 }
 
 .sidemenu-icon{
-    padding-right: 8px;
+    /* padding-right: 8px; */
 }
 .sidemenu-collapse-container{
     width: 40%;
@@ -54,28 +62,13 @@
     color:#EBEBEB;
     text-transform: uppercase;
     height: 50px;
-
+    display: flex;
+    align-items: center;
 }
 
 .name-collapse{
     height: 50px;
-    pointer-events: none!important;
-    position: relative;
     z-index:0;
-}
-
-.name-collapse::after{
-    border: 2px solid red;
-    content: '';
-    position: absolute;
-    left:0;
-    right:0;
-    top:0;
-    bottom:0;
-    height: 50px;
-    width: 50px;
-    z-index:5!important;
-    background: transparent;
 }
 
 
@@ -94,4 +87,51 @@
     color: white;
     height: 20px;
     width: 20px;
+}
+
+.menu-content {
+    flex-grow: 1;
+    overflow-y: auto; 
+}
+
+.user-info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px var(--el-menu-base-level-padding);
+    border-top: 2px solid #ffffff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease-in-out;
+}
+
+.user-info-container::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: white; 
+    transition: width 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.user-info-container:hover::after {
+    width: 100%;
+}
+
+.user-icon-container{
+    /* border:2px solid red; */
+    background-color: #ffffff;
+    height: 40px;
+    width: 40px;
+    border-radius: 500px;
+}
+.user-info-container .username,
+.user-info-container .user-icon-container,
+.user-info-container .logout-icon {
+    position: relative; /* Keep text/icons above background animation */
+    z-index: 1;
 }
