@@ -2,7 +2,7 @@
     <div class="top-menu-container">
         <div class="top-menu-title-container">
             <div class="top-menu-title-text bold text-24">
-                Title name
+                {{title}}
             </div>
             <div class="top-menu-date">
                 <div class="menu-date">
@@ -13,13 +13,13 @@
         <div class="top-menu-tab-container">
             <div class ="top-tab-container" style="margin-bottom: 20px">
                 <el-button size="small" @click="addTab(editableTabsValue)" class="add-tab-icon"> + </el-button>
-                <div>
+                <div class="w-100percent">
                     <el-tabs
                         v-model="editableTabsValue"
                         type="card"
                         class="demo-tabs"
                         closable
-                        @tab-remove="removeTab(editableTabsValue)"
+                        @tab-remove="removeTab"
                     >
                         <el-tab-pane
                         v-for="item in editableTabs"
@@ -27,7 +27,7 @@
                         :label="item.title"
                         :name="item.name"
                         >
-                        {{ item.content }}
+                        <slot :name="item.name"></slot>
                         </el-tab-pane>
                     </el-tabs>
                 </div>
@@ -43,30 +43,16 @@
 
 <script>
 export default {
+    props: {
+      tabs: Array,
+      title: String,
+    },
     data(){
         return{
+            
             tabIndex:2,
-            editableTabsValue : '2',
-            editableTabs:[
-              {
-                title:'Tab 1',
-                name: '1',
-                content:'Tab 1 content',
-              },
-              {
-                title:'Tab 2',
-                name: '2',
-                content:'Tab 2 content',
-              }
-            ],
-            postForm:{
-                input_username:'',
-                input_password:'',
-                stay_login:false,
-                email:'',
-                phone_number:'',
-                message:'',
-            },
+            editableTabsValue : this.tabs.length > 0? this.tabs[0].name:'',
+            editableTabs:[...this.tabs],
             timestamp:'',
         }
     },methods:{
@@ -76,39 +62,39 @@ export default {
             { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         },
         addTab(targetName){
-          const newTabName = this.tabIndex ++
+          this.tabIndex++
+          const newTabName = this.tabIndex.toString()
           this.editableTabs.push({
             title: 'New Tab ' + this.tabIndex,
             name: newTabName,
             content: 'New Tab content ' + this.tabIndex,
           })
-          console.log(this.tabIndex)
+          this.$emit("update-tab-content",newTabName,`New Tab ${this.tabIndex} content`)
           this.editableTabsValue = newTabName
+          console.log("editableTabsValue "+this.editableTabsValue)
+
         },
-        removeTab(targetName){
-          const tabs = this.editableTabs
-          let activeName = this.editableTabsValue
+        removeTab(targetName) {
+            const index = this.editableTabs.findIndex(tab => tab.name === targetName);
+            let activeName = this.editableTabsValue;
 
-          if (activeName === targetName) {
-            tabs.forEach((tab, index) => {
-              if (tab.name === targetName) {
-                const nextTab = tabs[index + 1] || tabs[index - 1]
-                if (nextTab) {
-                  activeName = nextTab.name
+            if (index !== -1) {
+                if (activeName === targetName) {
+                    const nextTab = this.editableTabs[index + 1] || this.editableTabs[index - 1];
+                    activeName = nextTab ? nextTab.name : "";
                 }
-              }
-            })
-          }
+                this.editableTabs.splice(index, 1);
+            }
 
-          this.editableTabsValue = activeName
-          this.editableTabs = tabs.filter((tab) => tab.name !== targetName)
+            this.editableTabsValue = activeName;
+            this.$emit("remove-tab-content", targetName);
         }
     },
     computed: {
        
     },created() {
+        console.log("editableTabsValue "+this.editableTabsValue)
         this.getDateNow()
-        console.log(this.editableTabs)
     },
 }
 </script>

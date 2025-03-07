@@ -35,3 +35,19 @@
     transform: rotate(180deg);
     transition: transform 0.3s ease-in-out;
 }
+
+.section-flex{
+    display: flex;
+}
+
+.section-container{
+    width: 100%;
+}
+
+.component-section{
+    width: 100%;
+}
+
+.w-100percent{
+    width: 100%;
+}

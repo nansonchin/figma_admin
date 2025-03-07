@@ -7,6 +7,10 @@
 
 }
 
+.top-menu-container{
+    background-color: #ffffff;
+}
+
 .top-menu-title-text{
     font-size: 24px;
 }
@@ -17,6 +21,7 @@
     flex-direction: row-reverse;
     align-items: flex-start;
     justify-content: start;
+    width: 100%;
 }
 
 .el-tabs__item.is-active{
@@ -69,6 +74,10 @@
     color: #ffffff;
     font-weight: bold;
     background-color: var(--colorPrimary);
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    z-index: 300;
 }
 
 .el-tabs--card>.el-tabs__header{
@@ -78,3 +87,13 @@
 .el-tabs--card>.el-tabs__header .el-tabs__nav{
     border: none!important;
 }
+
+.el-tabs__header{
+    margin: 0px;
+}
+
+.tab{
+    width: 100%;
+    position: relative;
+}
+
