@@ -22,6 +22,8 @@ import '@/assets/css/responsive.css'
 import '@/assets/css/sidemenu.css'
 import '@/assets/css/topmenu.css'
 import '@/assets/css/product.css'
+import '@/assets/css/setting.css'
+import '@/assets/css/admin_password.css'
 
 const app = createApp(App)
 app.use(i18n)

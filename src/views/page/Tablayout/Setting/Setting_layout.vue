@@ -8,9 +8,10 @@
             :tabs="tabs" :title="title"
             @update-tab-content="updateTabContent"
             @remove-tab-content="removeTabContent"
+            
             >
                 <template v-slot:1 >
-                    <ProductLayout />
+                    <Setting />
                 </template>
                 <template v-slot:2 >
                     Tab Product 2
@@ -26,7 +27,7 @@
 
 <script setup>
 import TopMenu from '@/views/header/topmenu.vue'
-import ProductLayout from '@/views/page/PageDesign/product_format.vue'
+import Setting from '@/views/page/PageDesign/setting_format.vue'
 import SideMenu from '@/views/header/sidemenu.vue'
 </script>
 

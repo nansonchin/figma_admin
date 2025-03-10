@@ -22,7 +22,7 @@
                         <div class="login-custom-padding">
                             <div class="login-field-container">
                                 <div class="login-each-field">
-                                    <div class="login-field-text text-20">
+                                    <div class="login-field-text text-20 ">
                                         Username:
                                     </div>
                                     <el-input
