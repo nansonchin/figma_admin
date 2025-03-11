@@ -43,6 +43,9 @@ export default {
                 {
                     title:'Tab 2', name:'2',
                 },
+                {
+                    title:'Tab 3', name:'3',
+                },
             ],
             tabContents: {},
         }

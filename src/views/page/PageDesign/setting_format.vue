@@ -79,7 +79,7 @@
                                 Setting
                             </div>
                             <div class="setting-text-container">
-                                <div class="setting-text cursor-pointer"> Change Admin Password </div>
+                                <div class="setting-text cursor-pointer" @click="goBackAdmin()"> Change Admin Password </div>
                                 <div class="setting-text cursor-pointer"> Enable Two-Factor Authentication (2FA)</div>
                                 <div class="setting-text cursor-pointer"> Session Timeout Settings </div>
                             </div>
@@ -138,6 +138,10 @@ export default {
             setTimeout(()=>{
                 this.copiedTip = false;
             },1500);
+        },
+        goBackAdmin(){
+            this.$emit('open-admin-password')
+            console.log('Clicked')
         }
     },
     computed: {
