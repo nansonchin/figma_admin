@@ -14,7 +14,9 @@
                     <Setting @open-admin-password="addAdminPasswordTab"/>
                 </template>
                 <template v-for="(content, tabName) in tabContents" v-slot:[tabName]>
-                    {{ content }}
+                    <component v-if="typeof content === 'object' && content !== null && content !== undefined && content !== ''"
+                        :is="content" />
+                    <div v-else>{{content}}</div>
                 </template>
             </TopMenu>
         </div>
@@ -50,22 +52,30 @@ export default {
     },
     methods:{
         addAdminPasswordTab() {
-            const tabName = 'Admin Password'; // Unique tab name
+            const tabName = 'Change Admin Password';
 
-                // Check if the tab already exists
-                if (!this.tabs.some(tab => tab.name === tabName)) {
-                this.tabs.push({
-                    title: 'Admin Password',
-                    name: tabName
-                });
+            if (!this.tabs.some(tab => tab.name === tabName)) {
+                this.tabs.push({ title: 'Change Admin Password', name: tabName });
+                this.updateTabContent(tabName, 'Change Admin Password');
+            }
 
-                    this.updateTabContent(tabName, 'Change Admin Password');
-                }
-                console.log('TabContent'+JSON.stringify(this.tabContents, null, 2))
-                this.addAdminTab=true;
+            console.log('Tabs:', this.tabs);
+            console.log('TabContent:', JSON.stringify(this.tabContents, null, 2));
+            console.log('TabContent Tabname:', JSON.stringify(this.tabContents[tabName], null, 2));
+
+            this.addAdminTab = true;
+
         },
         updateTabContent(tabName, content) {
-            this.tabContents[tabName]= content
+            //stuck
+            if (this.addAdminTab) {
+                this.tabContents[tabName] = AdminPassword;
+                this.addAdminTab=false
+            } else {
+                this.tabContents[tabName]= content
+
+            }
+            console.log('Updated TabContents:', JSON.stringify(this.tabContents, null, 2));
         },
         removeTabContent(tabName) {
             delete this.tabContents[tabName];

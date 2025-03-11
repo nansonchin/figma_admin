@@ -27,7 +27,9 @@
                         :label="item.title"
                         :name="item.name"
                         >
-                        <slot :name="item.name"></slot>
+                        <!-- <slot :name="item.name"></slot> -->
+                        <slot :name="item.name" :content="item.content"></slot>
+
                         </el-tab-pane>
                     </el-tabs>
                 </div>
@@ -63,28 +65,18 @@ export default {
             { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         },
         addTab(targetName){
-            this.tabIndex++
-            const newTabName = this.tabIndex.toString()
+            this.tabIndex++;
+            const newTabName = this.tabIndex.toString();
             this.editableTabs.push({
                 title: 'New Tab ' + this.tabIndex,
                 name: newTabName,
                 content: 'New Tab content ' + this.tabIndex,
-            })
-            this.$emit("update-tab-content",newTabName,' New Tab ${this.tabIndex} content')
-            this.editableTabsValue = newTabName
-            console.log('This EditableTab '+ this.editableTabsValue);
+            });
+            this.$emit("update-tab-content", newTabName, `New Tab ${this.tabIndex} content`);
+            this.editableTabsValue = newTabName;
+            console.log('Updated EditableTabsValue:', this.editableTabsValue);
+            console.log('Tab Content:', this.editableTabs);
         },
-        // addTab(title = "New Tab", name = (this.tabIndex++).toString()) {
-        //     if (!this.editableTabs.some(tab => tab.name === name)) {
-        //         this.editableTabs.push({
-        //             title: title,
-        //             name: name,
-        //             content: title + ' content'
-        //         });
-        //         this.editableTabsValue = name;
-        //         this.$emit("update-tab-content", name, title + ' content');
-        //     }
-        // },
         removeTab(targetName) {
             const index = this.editableTabs.findIndex(tab => tab.name === targetName);
             let activeName = this.editableTabsValue;
