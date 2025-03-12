@@ -1,0 +1,16 @@
+.session-desc-title-section{
+    display: flex;
+    gap: 20px;
+}
+
+.session-desc-section{
+    padding: 20px 0px;
+}
+
+.session-time-description{
+    padding: 20px 0px;
+}
+
+.el-select {
+    width: 200px;
+  }

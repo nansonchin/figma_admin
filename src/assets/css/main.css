@@ -89,3 +89,22 @@
 .padding-10{
     padding:10px 0px;
 }
+
+.background-primary{
+    background-color: var(--colorPrimary);
+}
+.background-white{
+    background-color: #ffffff;
+}
+
+.icon-white{
+    color:#ffffff;
+}
+
+.text-unactive{
+    color:#CACACA!important;
+}
+
+.custom-padding-height-50{
+    padding-top: 50px;
+}

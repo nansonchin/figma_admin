@@ -24,6 +24,10 @@ import '@/assets/css/topmenu.css'
 import '@/assets/css/product.css'
 import '@/assets/css/setting.css'
 import '@/assets/css/admin_password.css'
+import '@/assets/css/back_up.css'
+import '@/assets/css/import.css'
+import '@/assets/css/session_time.css'
+import '@/assets/css/enable2fa.css'
 
 const app = createApp(App)
 app.use(i18n)

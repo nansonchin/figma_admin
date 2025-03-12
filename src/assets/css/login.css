@@ -74,6 +74,15 @@
     text-align: center;
 }
 
+.disable-button{
+    padding: 36px 60px;
+    position: relative;
+    overflow: hidden;
+    color: white; /* Default text color */
+    background-color: #D9D9D9!important;
+    border:1px solid #D9D9D9!important;
+    transition: color 0.3s ease-in-out;
+}
 
 .login-button {
     padding: 36px 60px;

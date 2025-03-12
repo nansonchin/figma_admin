@@ -1,0 +1,44 @@
+.check-box-tick{
+    border: 1px solid #C1C1C1;
+    border-radius: 2px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+}
+.custom-check-box:hover{
+    color:var(--colorPrimary);
+}
+
+.check-box-tick:hover{
+    border: 1px solid var(--colorPrimary);
+}
+
+.custom-check-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px;
+}
+
+.check-box-container{
+    padding: 20px 0px;
+}
+
+.export-container{
+    padding: 20px;
+    text-align: start;
+}
+
+.export-el-button{
+    height: 80px!important;
+    font-weight: normal!important;
+}
+.export-desc{
+    padding-top: 6px;
+}
+
+.export-button-container{
+    padding: 20px 0px;
+    text-align: end;
+}
