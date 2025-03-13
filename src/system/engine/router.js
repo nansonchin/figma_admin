@@ -11,6 +11,9 @@ import backup from "@/views/page/PageDesign/back_up.vue"
 import importFile from "@/views/page/PageDesign/import.vue"
 import sessionTime from "@/views/page/PageDesign/session_time.vue"
 import enable2fa from "@/views/page/PageDesign/enable_2fa.vue"
+import inbox from "@/views/page/PageDesign/inbox_message.vue"
+import notification from "@/views/page/PageDesign/notification.vue"
+import news from "@/views/page/PageDesign/news.vue"
 
 const routes = [
     { path: '/', component: Dashboard, name: 'Homepage' },
@@ -24,6 +27,9 @@ const routes = [
     { path: '/backup', component: backup, name: 'backup' },
     { path: '/import', component: importFile, name: 'import' },
     { path: '/enable2fa', component: enable2fa, name: 'enable2fa' },
+    { path: '/inbox', component: inbox, name: 'inbox' },
+    { path: '/notification', component: notification, name: 'notification' },
+    { path: '/news', component: news, name: 'news' },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })

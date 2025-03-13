@@ -28,6 +28,8 @@ import '@/assets/css/back_up.css'
 import '@/assets/css/import.css'
 import '@/assets/css/session_time.css'
 import '@/assets/css/enable2fa.css'
+import '@/assets/css/inbox.css'
+import '@/assets/css/news.css'
 
 const app = createApp(App)
 app.use(i18n)

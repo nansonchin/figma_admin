@@ -1,0 +1,125 @@
+.list-table{
+    border: 2px solid red;
+    border-radius: 8px;
+    margin: 20px 0px;
+}
+
+.el-input__wrapper,.el-select__wrapper{
+    box-shadow: none!important;
+    border-radius: none!important;
+    border-bottom: 1px solid #FFFFFF;
+    background-color:#E8E8E8;
+    gap: 4px;
+}
+
+.inbox-section{
+    background-color: #E8E8E8;
+}
+
+.el-input__prefix,.el-select__suffix i{
+    color: #000;
+    font-size: 18px;
+}
+
+.el-input__inner::placeholder, .el-select__placeholder::placeholder,.el-select__placeholder span{
+    color: #000;
+    font-size: 18px;
+}
+
+.el-input__inner, .el-select__placeholder{
+    color: #000;
+    font-size: 18px;
+}
+
+.el-input__prefix-inner>:last-child{
+    margin-right: 0px;
+}
+
+.filter-section{
+    padding: 20px 0px;
+}
+
+.message-image-container{
+    border: 1px solid #D9D9D9;
+    width: 40px;
+    height: 40px;
+    border-radius: 500px;
+}
+
+.name-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.name-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 500px;
+
+}
+
+.inbox-table{
+    padding: 0px!important;
+    border: 2px solid red!important;
+}
+
+.unread{
+    background-color: #61b8ff53!important;
+}
+.read{
+    background-color: #ffffff!important;
+}
+
+.pagination-container{
+    background-color: white;
+
+}
+.pagination-section{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.page-size-select{
+    width: 100px;
+}
+
+.pagination-info span{
+    font-size: 14px;
+}
+
+.pagination-info{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.pagination-info .el-select .el-select__wrapper{
+    border: 1px solid #D9D9D9!important;
+    background-color: #ffffff;
+}
+
+.pagination-show-entities{
+    padding: 20px 20px;
+}
+
+
+.advertisement-container{
+    margin: 20px 0px;
+    width: 100%;
+    height: 350px;
+    max-height: 350px;
+}
+.advertisement{
+    width: 100%;
+    height: 100%;
+    max-height: 350px;
+
+}
+
+.ad-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
