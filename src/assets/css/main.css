@@ -111,3 +111,22 @@
 .custom-padding-height-50{
     padding-top: 50px;
 }
+
+.color-primary{
+    color:var(--colorPrimary)
+}
+
+.flex-column{
+    flex-direction: column!important;
+}
+.flex{
+    display: flex!important;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.gap-20{
+    gap: 20px;
+}

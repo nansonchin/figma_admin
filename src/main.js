@@ -30,6 +30,7 @@ import '@/assets/css/session_time.css'
 import '@/assets/css/enable2fa.css'
 import '@/assets/css/inbox.css'
 import '@/assets/css/news.css'
+import '@/assets/css/user.css'
 
 const app = createApp(App)
 app.use(i18n)

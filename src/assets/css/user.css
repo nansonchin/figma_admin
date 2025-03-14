@@ -1,0 +1,56 @@
+.password-container{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.center-dialog-title title{
+    font-weight: bold;
+}
+
+.center-dialog-button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.member-image-text{
+    padding: 10px 0px;
+}
+.avatar-profile-container{
+    text-align: center;
+}
+
+.dialog-input-textfield > .login-each-field > div > .el-input__wrapper{
+    background-color: transparent!important;
+
+}
+.dialog-input-textfield > .login-each-field > div > .el-input__wrapper > .el-input__inner::placeholder{
+    color:#979191!important;
+}
+
+.date-picker-dialog{
+    width: 100%!important;
+    border-bottom: 1px solid rgb(217, 217, 217);
+    padding: 4px 0px !important;
+}
+
+.right-dialog{
+    margin: 0px!important;
+    margin-left: auto!important;
+    min-height: 100%!important;
+}
+
+.right-field{
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-field{
+    padding: 20px 0px;
+}
+
+.right-dialog-password{
+    display: flex;
+    align-items: center;
+    gap:20px
+}

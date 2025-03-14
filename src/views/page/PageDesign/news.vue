@@ -28,10 +28,10 @@
                                     <br>
                                     <br>
                                     We’re thrilled to share that something BIG is on the horizon! 🎉 A brand-new update is coming your way, bringing enhanced features, exclusive perks, and a smoother experience like never before.
-Whether you're a long-time supporter or new to our community, this is something you won't want to miss! Stay tuned for all the details—we’ll be revealing everything very soon. 👀
-✨ Get ready for a game-changing experience! ✨
-📅 Announcement Date: [Insert Date] 📍 Where: Right here! Stay connected for the official reveal.
-#StayTuned #ExcitingUpdate #BigThingsComing 🚀🔥
+                                    Whether you're a long-time supporter or new to our community, this is something you won't want to miss! Stay tuned for all the details—we’ll be revealing everything very soon. 👀
+                                    ✨ Get ready for a game-changing experience! ✨
+                                    📅 Announcement Date: [Insert Date] 📍 Where: Right here! Stay connected for the official reveal.
+                                    #StayTuned #ExcitingUpdate #BigThingsComing 🚀🔥
                                 </div>
                             </div>
                             <div class="news-footer">

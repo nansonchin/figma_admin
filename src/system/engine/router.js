@@ -14,6 +14,7 @@ import enable2fa from "@/views/page/PageDesign/enable_2fa.vue"
 import inbox from "@/views/page/PageDesign/inbox_message.vue"
 import notification from "@/views/page/PageDesign/notification.vue"
 import news from "@/views/page/PageDesign/news.vue"
+import users from "@/views/page/PageDesign/user.vue"
 
 const routes = [
     { path: '/', component: Dashboard, name: 'Homepage' },
@@ -30,6 +31,7 @@ const routes = [
     { path: '/inbox', component: inbox, name: 'inbox' },
     { path: '/notification', component: notification, name: 'notification' },
     { path: '/news', component: news, name: 'news' },
+    { path: '/users', component: users, name: 'users' },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })

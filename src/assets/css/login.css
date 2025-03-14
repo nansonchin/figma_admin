@@ -85,13 +85,39 @@
 }
 
 .login-button {
+    width: 20%;
+    z-index: 1;
     padding: 36px 60px;
     position: relative;
     overflow: hidden;
     color: white; /* Default text color */
     transition: color 0.3s ease-in-out;
 }
+.cancel-button {
+    z-index: 1;
+    width: 20%;
+    padding: 36px 60px;
+    position: relative;
+    overflow: hidden;
+    color: black; /* Default text color */
+    background-color: #ffffff;
+    border: 1px solid black;
+}
 
+.cancel-button::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0px;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+    background-color: red;
+    z-index: -1;
+}
+.cancel-button:hover::after {
+    width: 100%;
+}
 .login-button::after {
     content: "";
     position: absolute;
@@ -112,11 +138,13 @@
 .login-button:hover {
     color: #007bff!important;
 }
+.cancel-button:hover {
+    color: white!important;
+    background-color: white;
+    border: 1px solid black;
 
-.login-button{
-    position: relative;
-    z-index: 1;
 }
+
 
 
 .swiper-login-img{
