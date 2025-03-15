@@ -242,38 +242,61 @@
                     </div>
                     <el-input
                         class="login-input text-24"
-                        v-model="postForm.product_desc"
+                        v-model="postForm.product_name"
                         style="width: 100%"
-                        placeholder="Enter your password"
-                        clearable
-                        :type="showPassword ? 'text' : 'password'"
-                        :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
-                    >
-                        <template #suffix>
-                            <i
-                            class="cursor-pointer icon-hover text-18"
-                            :class="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
-                            @click="toogleShowPassword"
-                            ></i>
-                        </template>
-                    </el-input>
-                </div>
-            </div>
-            <div class="dialog-input-textfield">
-                <div class="login-each-field">
-                    <div class="login-field-text text-18 ">
-                        Gmail:
-                    </div>
-                    <el-input
-                        class="login-input text-24"
-                        v-model="postForm.email"
-                        style="width: 100%"
-                        placeholder="Enter your gmail"
+                        placeholder="Enter your username"
                         clearable
                         :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
                     />
                 </div>
             </div>
+            <div class="center-dialog-flex flex justify-spacebetween">
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <div class="login-field-text text-18 ">
+                            Created Date:
+                        </div>
+                        <el-date-picker
+                            v-model="postForm.data_joined"
+                            type="date"
+                            placeholder="Pick a date"
+                            :default-value="new Date(2010, 9, 1)"
+                            class="date-picker-dialog"
+                        />
+                    </div>
+                </div>
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <div class="login-field-text text-18 ">
+                            Quantity:
+                        </div>
+                        <el-input
+                            class="login-input text-24"
+                            v-model="postForm.product_name"
+                            style="width: 100%"
+                            placeholder="Enter quantity"
+                            clearable
+                            :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                        />
+                    </div>
+                </div>
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <div class="login-field-text text-18 ">
+                            Price:
+                        </div>
+                        <el-input
+                            class="login-input text-24"
+                            v-model="postForm.product_name"
+                            style="width: 100%"
+                            placeholder="Enter price"
+                            clearable
+                            :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                        />
+                    </div>
+                </div>
+            </div>
+            
             <div class="dialog-input-textfield">
                 <div class="login-each-field">
                     <div class="login-field-text text-18 ">
@@ -288,19 +311,161 @@
                     />
                 </div>
             </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        Total Price:
+                    </div>
+                    <div class="total-price-amount-container">
+                        <div class="total-price-amount bold text-20">
+                            122,300.00
+                        </div>
+                        <div class="total-profit-container flex gap-20">
+                            <div class="total-profit">
+                                Profit Gain 16%
+                            </div>
+                            <div class="total-profit-icon">
+                                <i class="fa-regular fa-circle-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field ">
+                    <div class="login-field-text text-18 ">
+                        Category:
+                    </div>
+                    <el-select v-model="sortOrder" placeholder="Sort by" @change="sortNotifications" class="center-dialog-category">
+                        <template #suffix-icon>
+                            <i class="fa-solid fa-caret-down"></i>
 
-        <!-- <el-divider /> -->
-
-        <!-- <el-descriptions :column="1" border>
-            <el-descriptions-item label="Username">User12345</el-descriptions-item>
-            <el-descriptions-item label="Password">******** <el-icon><el-icon-eye /></el-icon></el-descriptions-item>
-            <el-descriptions-item label="Email">Abc@Gmail.com</el-descriptions-item>
-            <el-descriptions-item label="Product Purchased">
-            <el-link type="primary">3,257 Product(s)</el-link>
-            </el-descriptions-item>
-            <el-descriptions-item label="Date Created">25/12/2025</el-descriptions-item>
-        </el-descriptions> -->
-
+                        </template>
+                        <el-option label="Latest" value="latest" />
+                        <el-option label="Oldest" value="oldest" />
+                    </el-select>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field ">
+                    <div class="login-field-text text-18 ">
+                        Product Sllide Image:
+                    </div>
+                    <div class="import-container">
+                        <el-upload
+                            class="upload-demo"
+                            drag
+                            action=""
+                            multiple
+                        >
+                            <i class="fa-solid fa-cloud-arrow-up icon-file"></i>
+                            <div class="el-upload__text">
+                            Drop file here or <em>click to upload</em>
+                            </div>
+                            <template #tip>
+                            <div class="el-upload__tip">
+                                jpg/png files with a size less than 500kb
+                            </div>
+                            </template>
+                        </el-upload>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        Discount 
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        Discount Status
+                    </div>
+                    <div class="total-price-amount-container">
+                        <div class="switch-icon">
+                            <el-switch v-model="postForm.enable_fa" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        Discount Percentage
+                    </div>
+                    <el-input
+                        class="login-input text-24"
+                        v-model="postForm.product_name"
+                        style="width: 50%"
+                        placeholder="Enter Discount Percentage"
+                        clearable
+                        :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                    />
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        After Discounted Total Price:
+                    </div>
+                    <div class="total-price-amount-container">
+                        <div class="total-price-amount bold text-20">
+                            122,300.00
+                        </div>
+                        <div class="total-profit-container flex gap-20">
+                            <div class="total-profit">
+                                Profit Gain 16%
+                            </div>
+                            <div class="total-profit-icon">
+                                <i class="fa-regular fa-circle-info"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-input-textfield">
+                <div class="login-each-field flex justify-spacebetween">
+                    <div class="login-field-text text-18 ">
+                        Discount Date
+                    </div>
+                </div>
+            </div>
+            <div class="center-dialog-flex flex justify-spacebetween">
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <el-input
+                            class="login-input text-24"
+                            v-model="postForm.product_name"
+                            style="width: 100%"
+                            placeholder="Enter price"
+                            clearable
+                            :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                        />
+                    </div>
+                </div>
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <div class="login-field-text text-18 ">
+                            Till:
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="dialog-input-textfield">
+                    <div class="login-each-field">
+                        <el-input
+                            class="login-input text-24"
+                            v-model="postForm.product_name"
+                            style="width: 100%"
+                            placeholder="Enter price"
+                            clearable
+                            :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                        />
+                    </div>
+                </div>
+            </div>
         <div class="center-dialog-button">
             <div class="login-button-container">
                 <el-button type="primary" class="cancel-button text-18">Cancel</el-button>

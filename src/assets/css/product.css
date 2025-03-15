@@ -146,3 +146,18 @@
     padding: 4px;
     text-align: center;
 }
+
+.total-profit{
+    color:#1A9900
+}
+
+.center-dialog-category{
+    width: 100%!important;
+}
+.center-dialog-category > .el-select__wrapper{
+   background-color: transparent!important;
+}
+
+.center-dialog-category::placeholder{
+    color: #979191!important;
+}
