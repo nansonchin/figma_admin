@@ -16,7 +16,7 @@
         </div>
         <div class="grid-view-product-container" v-if="grid_selected">
             <div class="grid-view-product-section">
-                <div class="product-item-section" v-for="item in 5" @click="">
+                <div class="product-item-section cursor-pointer" v-for="item in 5" @click="toogleRightDialog">
                     <div class="grid-product-img-container">
                         <img :src="product_img" class="product-img"/>
                     </div>

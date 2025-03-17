@@ -26,8 +26,8 @@
 
 <script setup>
 import TopMenu from '@/views/header/topmenu.vue'
-import Setting from '@/views/page/PageDesign/setting_format.vue'
-import AdminPassword from '@/views/page/PageDesign/change_admin_password.vue';
+import Setting from '@/views/page/PageDesign/Setting/setting_format.vue'
+import AdminPassword from '@/views/page/PageDesign/Setting/change_admin_password.vue';
 import SideMenu from '@/views/header/sidemenu.vue'
 import { defineAsyncComponent } from 'vue';
 </script>

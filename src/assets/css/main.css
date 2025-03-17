@@ -52,7 +52,10 @@
 }
 
 .w-100percent{
-    width: 100%;
+    width: 100%!important;
+}
+.w-50percent{
+    width: 50%!important;
 }
 
 .text-align-center{
@@ -71,6 +74,14 @@
 }
 
 .flex-1{
+    flex:1;
+}
+
+.flex-2{
+    flex:1;
+}
+
+.flex-3{
     flex:1;
 }
 
@@ -129,4 +140,12 @@
 
 .gap-20{
     gap: 20px;
+}
+
+.align-item-center{
+    align-items: center;
+}
+
+.align-item-spacebetween{
+    align-items: sa;
 }

@@ -26,7 +26,7 @@
 
 <script setup>
 import TopMenu from '@/views/header/topmenu.vue'
-import ProductLayout from '@/views/page/PageDesign/product_format.vue'
+import ProductLayout from '@/views/page/PageDesign/Product/product_format.vue'
 import SideMenu from '@/views/header/sidemenu.vue'
 </script>
 
