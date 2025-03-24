@@ -1,11 +1,11 @@
 <template>
-    <div class="inbox-section">
+    <div class="product-section">
         <div class="inbox-white">
             
         </div>
         <el-row :gutter="20" v-loading="orderLoading">
             <el-col :sm="24" :md="24" :lg="24">
-                <div class="container">
+                <div class="">
                     <div class="product-layout-section">
                         <div class="product-grid-list">
                             <img :src="list_icon_act" class="grid-list cursor-pointer"/>

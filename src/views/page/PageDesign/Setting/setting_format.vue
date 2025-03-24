@@ -80,8 +80,8 @@
                             </div>
                             <div class="setting-text-container">
                                 <div class="setting-text cursor-pointer" @click="goBackAdmin()"> Change Admin Password </div>
-                                <div class="setting-text cursor-pointer"> Enable Two-Factor Authentication (2FA)</div>
-                                <div class="setting-text cursor-pointer"> Session Timeout Settings </div>
+                                <div class="setting-text cursor-pointer" @click="goBack2FA()"> Enable Two-Factor Authentication (2FA)</div>
+                                <div class="setting-text cursor-pointer" @click="goSessionTime()"> Session Timeout Settings </div>
                             </div>
                         </div>
                         <div class="padding-10"></div>
@@ -101,8 +101,8 @@
                             </div>
                             <div class="setting-text-container">
                                 <div class="setting-text cursor-pointer">Database Backup & Restore</div>
-                                <div class="setting-text cursor-pointer">Import Data</div>
-                                <div class="setting-text cursor-pointer">Export Data (CSV, Excel, JSON, etc.)</div>
+                                <div class="setting-text cursor-pointer" @click="goImport()">Import Data</div>
+                                <div class="setting-text cursor-pointer" @click="goBackUp()">Export Data (CSV, Excel, JSON, etc.)</div>
                             </div>
                         </div>
                     </el-col>
@@ -141,7 +141,18 @@ export default {
         },
         goBackAdmin(){
             this.$emit('open-admin-password')
-            console.log('Clicked')
+        },
+        goBack2FA(){
+            this.$emit('open-2fa')
+        },  
+        goSessionTime(){
+            this.$emit('open-session')
+        },
+        goImport(){
+            this.$emit('open-import')
+        },
+        goBackUp(){
+            this.$emit('open-backup')
         }
     },
     computed: {

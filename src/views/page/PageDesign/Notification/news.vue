@@ -1,9 +1,9 @@
 <template>
-    <div class="inbox-section">
+    <div class="product-section">
 
         <el-row :gutter="20" v-loading="orderLoading">
             <el-col :sm="24" :md="24" :lg="24">
-                <div class="container">
+                <div class="">
                     <div class="news-container">
                         <div class="news-section">
                             <div class="news-header">
@@ -73,7 +73,7 @@ export default {
             icon_collapse:'src/assets/img/menu_icon/collapse.png',
             list_icon_act:'src/assets/img/icon/list_active.png',
             postForm:{  
-             
+         
             },
         }
     },methods:{

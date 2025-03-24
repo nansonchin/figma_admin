@@ -11,7 +11,7 @@
                             Download the data that you wish to back up
                         </div>
                         <div class="check-box-container"> 
-                            <div class="custom-check-box cursor-pointer" @click="selectBox()" >
+                            <div class="custom-check-box cursor-pointer" @click="selectAll" >
                                 <div class="check-box-text text-20"  :class="postForm.back_all? 'bold' : ''">Back up All</div>
                                 <div class="check-box-tick"
                                 :class="postForm.back_all? 'background-primary' : 'background-white'"
@@ -19,7 +19,7 @@
                                     <span v-if="postForm.back_all" class=""><i class="fa-solid fa-check icon-white"></i></span>
                                 </div>
                             </div>
-                            <div class="custom-check-box cursor-pointer" @click="selectBox()" >
+                            <div class="custom-check-box cursor-pointer" @click="this.postForm.back_top_product=!this.postForm.back_top_product" >
                                 <div class="check-box-text text-20"  :class="postForm.back_top_product? 'bold' : ''">Back up Top product</div>
                                 <div class="check-box-tick"
                                 :class="postForm.back_top_product? 'background-primary' : 'background-white'"
@@ -27,7 +27,7 @@
                                     <span v-if="postForm.back_top_product" class=""><i class="fa-solid fa-check icon-white"></i></span>
                                 </div>
                             </div>
-                            <div class="custom-check-box cursor-pointer" @click="selectBox()" >
+                            <div class="custom-check-box cursor-pointer" @click="this.postForm.back_top_member=!this.postForm.back_top_member" >
                                 <div class="check-box-text text-20"  :class="postForm.back_top_member? 'bold' : ''">Back up member list</div>
                                 <div class="check-box-tick"
                                 :class="postForm.back_top_member? 'background-primary' : 'background-white'"
@@ -35,7 +35,7 @@
                                     <span v-if="postForm.back_top_member" class=""><i class="fa-solid fa-check icon-white"></i></span>
                                 </div>
                             </div>
-                            <div class="custom-check-box cursor-pointer" @click="selectBox()" >
+                            <div class="custom-check-box cursor-pointer" @click="this.postForm.back_payment=!this.postForm.back_payment" >
                                 <div class="check-box-text text-20"  :class="postForm.back_payment? 'bold' : ''">Back up payment list</div>
                                 <div class="check-box-tick"
                                 :class="postForm.back_payment? 'background-primary' : 'background-white'"
@@ -90,8 +90,17 @@ export default {
             },
         }
     },methods:{
-        selectBox(){
+        selectAll(){
             this.postForm.back_all = !this.postForm.back_all
+            if(this.postForm.back_all){
+                this.postForm.back_top_product=true
+                this.postForm.back_top_member=true
+                this.postForm.back_payment=true
+            }else if(!this.postForm.back_all){
+                this.postForm.back_top_product=false
+                this.postForm.back_top_member=false
+                this.postForm.back_payment=false
+            }
         },
         selectedFile(index){
             if(index==1){
@@ -103,8 +112,23 @@ export default {
     },
     computed: {
        
-    },created() {
+    },
+    created() {
 
     },
+    watch:{
+        "postForm.back_top_product"(newVal) {
+            this.postForm.back_all =
+                newVal && this.postForm.back_top_member && this.postForm.back_payment;
+        },
+        "postForm.back_top_member"(newVal) {
+            this.postForm.back_all =
+                newVal && this.postForm.back_top_product && this.postForm.back_payment;
+        },
+        "postForm.back_payment"(newVal) {
+            this.postForm.back_all =
+                newVal && this.postForm.back_top_product && this.postForm.back_top_member;
+        }
+    }
 }
 </script>

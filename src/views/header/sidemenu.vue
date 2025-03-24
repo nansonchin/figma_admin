@@ -108,6 +108,17 @@ let slides = 3
 export default {
     data(){
         return{
+            routes:{
+                "0":"/home",
+                "1":"/product",
+                "2":"/payment",
+                "3":"/category",
+                "4":"/analysis",
+                "5":"/member",
+                "6":"/notification",
+                "7":"/user-role",
+                "8":"/setting",
+            },
             activeIndex:"0",
             isCollapse:true,
             postForm:{
@@ -194,6 +205,11 @@ export default {
     },methods:{
         handleChangedIndex(index){
             this.activeIndex=index
+            const route=this.routes[index]
+            console.log("Route " + route)
+            if(route){
+                this.$router.push(route);
+            }
         },
     },
     computed: {

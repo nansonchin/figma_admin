@@ -21,7 +21,7 @@
                                                 Current Time Set
                                             </div>
                                             <div class="session-time text-18">
-                                                3 mins
+                                                {{selectedTime}}
                                             </div>
                                         </div>
                                         <div class="session-time-description text-18">
@@ -59,6 +59,7 @@
 export default {
     data(){
         return{
+            selectedTime:'3 mins',
             timeOptions:[
                 { label: "1 mins", value: "1 mins" },
                 { label: "5 mins", value: "5 mins" },
@@ -80,16 +81,7 @@ export default {
             },
         }
     },methods:{
-        selectBox(){
-            this.postForm.back_all = !this.postForm.back_all
-        },
-        selectedFile(index){
-            if(index==1){
-                this.postForm.file_selected="CSV"
-            }else if(index==2){
-                this.postForm.file_selected="JSON"
-            }
-        }
+        
     },
     computed: {
        

@@ -6,7 +6,7 @@
         <div class="component-section">
             <TopMenu :tabs="tabs" :title="title">
                 <template v-slot:1 >
-                    Category Section
+                    <Category/>
                 </template>
             </TopMenu>
         </div>
@@ -16,6 +16,7 @@
 
 <script setup>
 import TopMenu from '@/views/header/topmenu.vue'
+import Category from "@/views/page/PageDesign/Category/category.vue"
 import SideMenu from '@/views/header/sidemenu.vue'
 </script>
 <script>
