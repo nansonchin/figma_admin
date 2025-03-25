@@ -137,7 +137,7 @@ export default {
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Met34',
                     unread:true,
                 },
                 {
@@ -147,7 +147,7 @@ export default {
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Met12345',
                     unread:true,
                 },
                 {
@@ -157,7 +157,7 @@ export default {
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Met126',
                     unread:false,
                 },
             ],
@@ -174,12 +174,7 @@ export default {
             return row.unread ? 'unread' : 'read';
         },
         handleRowClick(row){
-            this.$router.push(
-                {
-                    name:'message-content',params:{id:row.id} 
-
-                }
-            )
+            this.$emit('open-message', { id: row.id, title: row.name });
         }
     },
     computed: {

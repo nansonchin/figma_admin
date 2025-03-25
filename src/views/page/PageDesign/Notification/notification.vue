@@ -64,7 +64,7 @@
                         </el-row>
                     </div>
                     <div class="list-table">
-                            <el-table class="cursor-pointer" :data="tableData" style="width: 100%" max-height="250" :row-class-name="tableRowClass" >
+                            <el-table class="cursor-pointer" :data="tableData" style="width: 100%" max-height="250" :row-class-name="tableRowClass" @row-click="handleRowClick">
                             <el-table-column fixed prop="date" label="" width="150" class="inbox-table"/>
                             <el-table-column fixed prop="project" label="" width="180" class="inbox-table"/>
                             <el-table-column fixed prop="desc" label="" width="450" class="inbox-table"/>
@@ -137,30 +137,33 @@ export default {
             sortOrder:'',
             tableData:[
                 {
+                    id:'1',
                     date:'12/25',
                     project:'Project SRC/1234',
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Aki1',
                     unread:true,
                 },
                 {
+                    id:'2',
                     date:'12/25',
                     project:'Project SRC/1234',
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Aki123',
                     unread:true,
                 },
                 {
+                    id:'3',
                     date:'12/25',
                     project:'Project SRC/1234',
                     desc:'Regarding to the Last project that we have meeting ...',
                     category:'Nothing',
                     image:'src/assets/img/image/met.jpg',
-                    name:'Met1234',
+                    name:'Aki4567',
                     unread:false,
                 },
             ],
@@ -175,6 +178,9 @@ export default {
         },
         tableRowClass({row}) {
             return row.unread ? 'unread' : 'read';
+        },
+        handleRowClick(row){
+            this.$emit('open-message', { id: row.id, title: row.name });
         }
     },
     computed: {

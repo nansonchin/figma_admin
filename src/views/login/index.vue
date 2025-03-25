@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="login-button-container">
-                            <el-button type="primary" class="login-button text-18">Login</el-button>
+                            <el-button type="primary" class="login-button text-18" @click="goToHome()">Login</el-button>
                         </div>
                         <div class="login-no-acc-container">
                             <div class="login-no-acc-text text-18">
@@ -127,6 +127,9 @@ export default {
             ],
         }
     },methods:{
+        goToHome(){
+            this.$router.push("/home")
+        }
     },
 }
 </script>

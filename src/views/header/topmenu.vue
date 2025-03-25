@@ -64,18 +64,38 @@ export default {
             this.timestamp = today.toLocaleString('en-US', 
             { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         },
-        addTab(targetName){
-            this.tabIndex++;
-            const newTabName = this.tabIndex.toString();
-            this.editableTabs.push({
-                title: 'New Tab ' + this.tabIndex,
-                name: newTabName,
-                content: 'New Tab content ' + this.tabIndex,
-            });
-            this.$emit("update-tab-content", newTabName, `New Tab ${this.tabIndex} content`);
-            this.editableTabsValue = newTabName;
-            console.log('Updated EditableTabsValue:', this.editableTabsValue);
-            console.log('Tab Content:', this.editableTabs);
+        addTab(targetName,customTitle){
+            console.log("AddTab", targetName);
+            if(targetName.startsWith("Message-")){
+                const existingTab=this.editableTabs.find(tab=>tab.name === targetName);
+                if(existingTab){
+                    if(customTitle){
+                        existingTab.title=customTitle
+                    }
+                    this.editableTabsValue=newTabName;
+                    return;
+                }
+                this.editableTabs.push({
+                    title:customTitle? customTitle:'Message',
+                    name:targetName,
+                    content:customTitle ? customTitle + " Content" : "Message Content"
+                })
+                this.$emit("update-tab-content", targetName, customTitle ? customTitle + " content" : "Message content");
+                this.editableTabsValue = targetName;
+            }else{
+                this.tabIndex++;
+                const newTabName = this.tabIndex.toString();
+                this.editableTabs.push({
+                    title: 'New Tab ' + this.tabIndex,
+                    name: newTabName,
+                    content: 'New Tab content ' + this.tabIndex,
+                });
+                this.$emit("update-tab-content", newTabName, `New Tab ${this.tabIndex} content`);
+                this.editableTabsValue = newTabName;
+                console.log('Updated EditableTabsValue:', this.editableTabsValue);
+                console.log('Tab Content:', this.editableTabs);
+            }
+           
         },
         removeTab(targetName) {
             const index = this.editableTabs.findIndex(tab => tab.name === targetName);

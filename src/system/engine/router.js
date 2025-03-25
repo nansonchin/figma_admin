@@ -17,8 +17,8 @@ import MessageContent from "@/views/page/PageDesign/Notification/news.vue"
 // import news from "@/views/page/PageDesign/Notification/news.vue"
 
 const routes = [
-    { path: '/', component: Dashboard, name: 'Homepage' },
-    { path: '/login', component: Login, name: 'Login' },
+    { path: '/', component: Login, name: 'Login' },
+    // { path: '/login', component: Login, name: 'Login' },
     { path: '/menu', component: Menu, name: 'menu' },
     { path: '/topmenu', component: TopMenu, name: 'topmenu' },
     { path: '/product', component: Product, name: 'product' },
