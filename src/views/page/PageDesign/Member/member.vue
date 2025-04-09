@@ -70,7 +70,7 @@
                                         {{ scope.$index+1 }}
                                     </template>
                                 </el-table-column>
-                                <el-table-column fixed prop="name" label="Username" width="350" class="inbox-table">
+                                <el-table-column fixed prop="name" label="Username" width="250" class="inbox-table">
                                     <template #default="scope">
                                         <div class="name-container">
                                             <div class="message-image-container">
@@ -80,8 +80,18 @@
                                         </div>
                                     </template>    
                                 </el-table-column>
-                                <el-table-column fixed prop="user_permission" label="User Permission" width="250" class="inbox-table"/>
-                                <el-table-column fixed prop="user_position" label="User Position" width="250" class="inbox-table"/>
+                                <el-table-column fixed prop="password" label="Password" width="180" class="inbox-table">
+                                    <template #default="scope">
+                                        <div class="password-container">
+                                            <div class="password-section">
+                                                {{ scope.row.password_showed? scope.row.password:'*'.repeat(scope.row.password.length) }}
+                                            </div>
+                                            <i class="cursor-pointer icon-hover" 
+                                            :class="scope.row.password_showed ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+                                            @click.stop="tooglePassword(scope.row)"></i>
+                                        </div>
+                                    </template>    
+                                </el-table-column>
                                 <el-table-column fixed prop="gmail" label="Gmail" width="350" class="inbox-table"/>
                                 <el-table-column fixed prop="date_join" label="Date Join" width="150"class="inbox-table" />
                                 <el-table-column fixed prop="status" label="Status" width="100" class="inbox-table"/>             
@@ -142,18 +152,21 @@
             </div>
             <div class="right-field">
                 <div class="right-text text-18 bold">
-                    User Position
+                    Password
                 </div>
                 <div class="right-data text-18">
-                    CTO
-                </div>
-            </div>
-            <div class="right-field">
-                <div class="right-text text-18 bold">
-                    User Permission
-                </div>
-                <div class="right-data text-18">
-                    Admin
+                    <div class="right-dialog-password">
+                        <div class="right-password-text">
+                            {{showPassword? testPassword:'*'.repeat(testPassword.length)}}
+                        </div>
+                        <div class="right-password-icon">
+                            <i
+                            class="cursor-pointer icon-hover text-18"
+                            :class="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+                            @click="toogleShowPassword"
+                            ></i>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="right-field">
@@ -164,13 +177,29 @@
                     User12345@gmail.com
                 </div>
             </div>
+            <div class="right-field">
+                <div class="right-text text-18 bold">
+                    Product Purchased
+                </div>
+                <div class="right-data text-18 color-primary">
+                    3,257 Product (s)
+                </div>
+            </div>
+            <div class="right-field">
+                <div class="right-text text-18 bold">
+                    Date Created
+                </div>
+                <div class="right-data text-18">
+                    25/12/2025
+                </div>
+            </div>
         </div>
        <div class="center-dialog-button">
             <div class="login-button-container">
                 <el-button type="primary" class="cancel-button text-18">Cancel</el-button>
             </div>
             <div class="login-button-container">
-                <el-button type="primary" class="login-button text-18" @click="toogleCenterDialog">Edit</el-button>
+                <el-button type="primary" class="login-button text-18">Save</el-button>
             </div>
         </div>
         </div>
@@ -203,29 +232,25 @@
             <div class="dialog-input-textfield">
                 <div class="login-each-field">
                     <div class="login-field-text text-18 ">
-                        User Permission:
+                        Password:
                     </div>
-                    <el-select v-model="sortOrder" placeholder="Sort by" @change="sortNotifications" class="center_option">
-                        <template #suffix-icon>
-                            <i class="fa-solid fa-caret-down"></i>
+                    <el-input
+                        class="login-input text-24"
+                        v-model="postForm.password"
+                        style="width: 100%"
+                        placeholder="Enter your password"
+                        clearable
+                        :type="showPassword ? 'text' : 'password'"
+                        :style="{ border: 'none', borderBottom: '1px solid #D9D9D9', borderRadius: '0' }"
+                    >
+                        <template #suffix>
+                            <i
+                            class="cursor-pointer icon-hover text-18"
+                            :class="showPassword ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+                            @click="toogleShowPassword"
+                            ></i>
                         </template>
-                        <el-option label="Latest" value="latest" />
-                        <el-option label="Oldest" value="oldest" />
-                    </el-select>
-                </div>
-            </div>
-            <div class="dialog-input-textfield">
-                <div class="login-each-field">
-                    <div class="login-field-text text-18 ">
-                        User Position:
-                    </div>
-                    <el-select v-model="sortOrder" placeholder="Sort by" @change="sortNotifications" class="center_option">
-                        <template #suffix-icon>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </template>
-                        <el-option label="Latest" value="latest" />
-                        <el-option label="Oldest" value="oldest" />
-                    </el-select>
+                    </el-input>
                 </div>
             </div>
             <div class="dialog-input-textfield">
@@ -257,20 +282,7 @@
                     />
                 </div>
             </div>
-            <div class="dialog-input-textfield">
-                <div class="login-each-field">
-                    <div class="login-field-text text-18 ">
-                        Status:
-                    </div>
-                    <el-select v-model="sortOrder" placeholder="Pending" @change="sortNotifications" class="center_option">
-                        <template #suffix-icon>
-                            <i class="fa-solid fa-caret-down"></i>
-                        </template>
-                        <el-option label="Latest" value="latest" />
-                        <el-option label="Oldest" value="oldest" />
-                    </el-select>
-                </div>
-            </div>
+
         <!-- <el-divider /> -->
 
         <!-- <el-descriptions :column="1" border>
@@ -315,9 +327,7 @@ export default {
                 {
                     image:'src/assets/img/image/met.jpg',
                     name:'Met1234',
-                    // password:'Met1234password',
-                    user_permission:'Executive',
-                    user_position:'HR Manager',
+                    password:'Met1234password',
                     gmail:'Met1234@gmail.com',
                     date_join:'Met1234',
                     password_showed:false,
@@ -326,9 +336,7 @@ export default {
                 {
                     image:'src/assets/img/image/met.jpg',
                     name:'Met1234',
-                    // password:'Met1234password',
-                    user_permission:'Admin',
-                    user_position:'CTO',
+                    password:'Met1234password',
                     gmail:'Met1234@gmail.com',
                     date_join:'12/25',
                     password_showed:false,
@@ -337,9 +345,7 @@ export default {
                 {
                     image:'src/assets/img/image/met.jpg',
                     name:'Met1234',
-                    // password:'Met1234password',
-                    user_permission:'Admin',
-                    user_position:'Art Director',
+                    password:'Met1234password',
                     gmail:'Met1234@gmail.com',
                     date_join:'12/25',
                     password_showed:false,

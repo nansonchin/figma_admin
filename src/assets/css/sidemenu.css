@@ -58,6 +58,12 @@
     font-weight: bold;
 }
 
+.el-menu-item .el-menu-tooltip__trigger{
+    padding: 0px!important;
+    left: 50%!important;
+    transform: translateX(-35%);
+}
+
 .function-name{
     padding: 10px var(--el-menu-base-level-padding);
     color:#EBEBEB;
@@ -92,7 +98,7 @@
 
 .menu-content {
     flex-grow: 1;
-    overflow-y: auto; 
+    /* overflow-y: auto;  */
 }
 
 .user-info-container{

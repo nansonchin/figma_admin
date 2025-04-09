@@ -1,9 +1,10 @@
 <template>
     <div class="side-menu-container">
         <el-menu
-            :default-active="activeIndex"
+            v-model:default-active="activeIndex"
             class="el-menu-vertical-demo"
             :collapse="isCollapse"
+            @select="handleChangedIndex"
         >
             <div class="menu-content">
                 <div class="sidemenu-text-collapse-container">
@@ -23,28 +24,28 @@
                 <div v-else="item.isHeader && isCollapse" class="name-collapse">
                     
                 </div>
-                <el-menu-item index="0" @click="handleChangedIndex(0)">
-                    <img :src="activeIndex == 0 ? icon_white[0].icon : icon_black[0].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'0'">
+                    <img :src="activeIndex === '0' ? icon_white[0].icon : icon_black[0].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[0].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="1" @click="handleChangedIndex(1)">
-                    <img :src="activeIndex == 1 ? icon_white[1].icon : icon_black[1].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'1'">
+                    <img :src="activeIndex === '1' ? icon_white[1].icon : icon_black[1].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[1].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="2" @click="handleChangedIndex(2)">
-                    <img :src="activeIndex == 2 ? icon_white[2].icon : icon_black[2].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'2'">
+                    <img :src="activeIndex === '2' ? icon_white[2].icon : icon_black[2].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[2].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="3" @click="handleChangedIndex(3)">
-                    <img :src="activeIndex == 3 ? icon_white[3].icon : icon_black[3].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'3'">
+                    <img :src="activeIndex === '3' ? icon_white[3].icon : icon_black[3].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[3].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="4" @click="handleChangedIndex(4)">
-                    <img :src="activeIndex == 4 ? icon_white[4].icon : icon_black[4].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'4'">
+                    <img :src="activeIndex === '4' ? icon_white[4].icon : icon_black[4].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[4].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="5" @click="handleChangedIndex(5)">
-                    <img :src="activeIndex == 5 ? icon_white[5].icon : icon_black[5].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'5'">
+                    <img :src="activeIndex === '5' ? icon_white[5].icon : icon_black[5].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[5].name}}</template>
                 </el-menu-item>
                             
@@ -55,22 +56,23 @@
                     
                 </div>
 
-                <el-menu-item index="6" @click="handleChangedIndex(6)">
-                    <img :src="activeIndex == 6 ? icon_white[6].icon :isRedMessage? icon_red_notification : icon_black[6].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'6'">
+                    <img :src="activeIndex === '6' ? icon_white[6].icon :isRedMessage? icon_red_notification : icon_black[6].icon" class="sidemenu-icon"/>
                     <template #title>
                         {{icon_black[6].name}}
                         <!-- <div v-if="icon_red_notification" class="notification-badge">
                             <div class="notification-value">3</div>
                         </div> -->
                     </template>
-                </el-menu-item> 
-                <el-menu-item index="7" @click="handleChangedIndex(7)">
-                    <img :src="activeIndex == 7 ? icon_white[7].icon : icon_black[7].icon" class="sidemenu-icon"/>
+                </el-menu-item>  
+                <el-menu-item :index="'7'">
+                    <img :src="activeIndex === '7' ? icon_white[7].icon : icon_black[7].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[7].name}}</template>
                 </el-menu-item>
-                <el-menu-item index="8" @click="handleChangedIndex(8)">
-                    <img :src="activeIndex == 8 ? icon_white[8].icon : icon_black[8].icon" class="sidemenu-icon"/>
+                <el-menu-item :index="'8'">
+                    <img :src="activeIndex === '8' ? icon_white[8].icon : icon_black[8].icon" class="sidemenu-icon"/>
                     <template #title>{{icon_black[8].name}}</template>
+                    <!-- <template #title>{{icon_black[8].name}}</template> -->
                 </el-menu-item>
             </div>
             
@@ -109,17 +111,17 @@ export default {
     data(){
         return{
             routes:{
-                "0":"/home",
-                "1":"/product",
-                "2":"/payment",
-                "3":"/category",
-                "4":"/analysis",
-                "5":"/member",
-                "6":"/notification",
-                "7":"/user-role",
-                "8":"/setting",
+                '0':"/home",
+                '1':"/product",
+                '2':"/payment",
+                '3':"/category",
+                '4':"/analysis",
+                '5':"/member",
+                '6':"/notification",
+                '7':"/user-role",
+                '8':"/setting",
             },
-            activeIndex:"0",
+            activeIndex:'0',
             isCollapse:true,
             postForm:{
                 input_username:'',
@@ -205,11 +207,13 @@ export default {
     },methods:{
         handleChangedIndex(index){
             this.activeIndex=index
-            const route=this.routes[index]
-            console.log("Route " + route)
-            if(route){
-                this.$router.push(route);
-            }
+            // // index is not string inside the array thats why
+            // // console.log(activeIndex === '8')
+            // const route=this.routes[parseInt(index)]
+            // // console.log("Route " + route)
+            // if(route){
+            //     this.$router.push(route);
+            // }
         },
     },
     computed: {

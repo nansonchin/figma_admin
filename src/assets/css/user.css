@@ -54,3 +54,11 @@
     align-items: center;
     gap:20px
 }
+
+.center_option{
+    width: 100%;
+}
+
+.center_option .el-select__wrapper{
+    padding:15px 4px!important;
+}

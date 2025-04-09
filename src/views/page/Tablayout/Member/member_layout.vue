@@ -10,7 +10,7 @@
             @remove-tab-content="removeTabContent"
             >
                 <template v-slot:1 >
-                    Member
+                    <Member/>
                 </template>
      
                 <template v-for="(content, tabName) in tabContents" v-slot:[tabName]>
@@ -23,7 +23,7 @@
 </template>
 <script setup>
 import TopMenu from '@/views/header/topmenu.vue'
-// import Member from '@/views/page/PageDesign/Payment/payment.vue'
+import Member from '@/views/page/PageDesign/Member/member.vue'
 import SideMenu from '@/views/header/sidemenu.vue'
 </script>
 
