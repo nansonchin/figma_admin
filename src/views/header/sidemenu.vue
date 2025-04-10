@@ -1,10 +1,10 @@
 <template>
     <div class="side-menu-container">
         <el-menu
-            v-model:default-active="activeIndex"
+            :default-active="activeIndex"
             class="el-menu-vertical-demo"
             :collapse="isCollapse"
-            @select="handleChangedIndex"
+            @select="$emit('change',$event)"
         >
             <div class="menu-content">
                 <div class="sidemenu-text-collapse-container">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div v-if="!isCollapse" class="function-name">
-                    Functional
+                    Functional {{ param_Index }}
                 </div>
                 <div v-else="item.isHeader && isCollapse" class="name-collapse">
                     
@@ -108,20 +108,15 @@ let slides = 3
 
 <script>
 export default {
+    name:'SideMenu',
+    props:{
+        activeIndex:{
+            type:String,
+            required:true,
+        }
+    },
     data(){
         return{
-            routes:{
-                '0':"/home",
-                '1':"/product",
-                '2':"/payment",
-                '3':"/category",
-                '4':"/analysis",
-                '5':"/member",
-                '6':"/notification",
-                '7':"/user-role",
-                '8':"/setting",
-            },
-            activeIndex:'0',
             isCollapse:true,
             postForm:{
                 input_username:'',
@@ -131,6 +126,7 @@ export default {
                 phone_number:'',
                 message:'',
             },
+            param_Index:this.activeIndex,
             user_icon:'',
             logout_icon:'src/assets/img/menu_icon/logout.png',
             isRedMessage:true,
@@ -206,7 +202,7 @@ export default {
         }
     },methods:{
         handleChangedIndex(index){
-            this.activeIndex=index
+            // this.activeIndex=index
             // // index is not string inside the array thats why
             // // console.log(activeIndex === '8')
             // const route=this.routes[parseInt(index)]
