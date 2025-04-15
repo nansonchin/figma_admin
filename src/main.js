@@ -33,6 +33,7 @@ import '@/assets/css/news.css'
 import '@/assets/css/user.css'
 import '@/assets/css/category.css'
 import '@/assets/css/payment.css'
+import '@/assets/css/home.css'
 
 const app = createApp(App)
 app.use(i18n)

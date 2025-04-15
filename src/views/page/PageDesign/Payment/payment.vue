@@ -33,17 +33,16 @@
                                     </div>
                                 </template>                
                             </el-table-column>
-                        <el-table-column fixed prop="product_name" label="Product Name" width="180" class="inbox-table"/>
-                        <el-table-column fixed prop="image" label="Product Image" width="250" class="inbox-table">
+                        <el-table-column fixed prop="payment_id" label="Payment ID" width="180" class="inbox-table"/>
+                        <el-table-column fixed prop="image" label="Product" width="250" class="inbox-table">
                             <template #default="scope">
                                 <div class="view-desc-container color-primary">
                                     View Description
                                 </div>
                             </template>    
                         </el-table-column>
-                        <el-table-column fixed prop="price" label="Price" width="180" class="inbox-table"/>
-                        <el-table-column fixed prop="quantity" label="Quantity" width="180" class="inbox-table"/>
-                        <el-table-column fixed prop="fav" label="Favourite" width="180" class="inbox-table"/>
+                        <el-table-column fixed prop="date" label="Date" width="180" class="inbox-table"/>
+                        <el-table-column fixed prop="status" label="Status" width="180" class="inbox-table"/>
                 
                         <el-table-column fixed="right" label="" min-width="100" class="inbox-table">
                         <template #default="scope">

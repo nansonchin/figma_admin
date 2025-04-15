@@ -10,6 +10,10 @@
                 <template v-slot:1 >
                     <Category/>
                 </template>
+     
+                <template v-for="(content, tabName) in tabContents" v-slot:[tabName]>
+                    {{ content }}
+                </template>
             </TopMenu>
         </div>
     </div>
@@ -35,6 +39,7 @@ export default {
                     title:'Category 2', name:'2',
                 },
             ],   
+            tabContents: {},
             routes: {
                 '0': '/home',
                 '1': '/product',
@@ -48,7 +53,7 @@ export default {
             },
             activeIndex: '3',
         } 
-    },method:{
+    },methods:{
         onMenuChange(newIndex) {
             // Called when SideMenu emits a change.
             this.activeIndex = newIndex;

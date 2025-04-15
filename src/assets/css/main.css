@@ -80,11 +80,11 @@ body{
 }
 
 .flex-2{
-    flex:1;
+    flex:2;
 }
 
 .flex-3{
-    flex:1;
+    flex:3;
 }
 
 .text-center{
@@ -150,4 +150,8 @@ body{
 
 .align-item-spacebetween{
     align-items: sa;
+}
+
+.h-100-percentage{
+    height: 100%;
 }

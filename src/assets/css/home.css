@@ -1,0 +1,97 @@
+.home-border{
+    border: 2px solid red;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.top-porpular-section{
+    padding: 1.25rem;
+}
+
+.item-percentage{
+    text-align: end;
+}
+
+.itemImg{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.itemName{
+}
+
+.itemName-text{
+    text-align: start;
+}
+
+.top-product-image{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+.top-product-each-container{
+    padding: .25rem 0px;
+}
+
+.home-banner-bottom{
+    margin-top: 1.25rem;
+    border-top: 1px solid #C7C7C7;
+    padding: 1.25rem;
+}
+
+.name-label{
+    color: #A3A3A3;
+    position: relative;
+    font-weight: normal;
+    padding-bottom: 0.25rem;
+    padding-right: .25rem;
+}
+
+.name-label-active{
+    font-weight: bold;
+    color: #000;
+}
+
+.name-label-active::after{
+    content:'';
+    position: absolute;
+    bottom: -1px;
+    left:0;
+    right: 0;
+    height: 3px;
+    background-color: #3C7DEB;
+}
+.chart-selection{
+    padding-top: 1.25rem;
+}
+.chart-circle{
+    border: 2px solid red;
+}
+
+.chart-data{
+    /* border: 2px solid blue; */
+}
+
+.chart-data-container{
+    padding-top: 1.25rem;
+}
+
+.chart-color{
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 1.25rem;
+}
+
+.chart-detail{
+    padding: 1.25rem 0px;
+}
+
+.chart-name{
+    margin-right: 1.25rem;
+
+}
+
+.chart-percentage{
+    text-align: end;
+}
