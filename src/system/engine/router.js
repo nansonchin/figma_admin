@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from "@/views/dashboard.vue"
-import Home from "@/views/page/PageDesign/Home/home.vue"
+import Home from "@/views/page/Tablayout/Home/home_layout.vue"
 import Login from "@/views/login/index.vue"
 import Menu from "@/views/header/sidemenu.vue"
 import TopMenu from "@/views/header/topmenu.vue"
@@ -20,7 +20,7 @@ import MessageContent from "@/views/page/PageDesign/Notification/news.vue"
 const routes = [
     { path: '/', component: Login, name: 'Login' },
     { path: '/home', component: Home, name: 'Home' },
-    { path: '/login', component: Login, name: 'Login' },
+    // { path: '/login', component: Login, name: 'Login' },
     { path: '/menu', component: Menu, name: 'menu' },
     { path: '/topmenu', component: TopMenu, name: 'topmenu' },
     { path: '/product', component: Product, name: 'product' },

@@ -76,7 +76,7 @@
                 </el-menu-item>
             </div>
             
-            <div class="user-info-container">
+            <div class="user-info-container" @click="logOut()">
                 <div class="user-icon-container" v-if="!isCollapse">
                    <img :src="user_icon" class="user-icon"/>
                 </div>
@@ -210,6 +210,9 @@ export default {
             // if(route){
             //     this.$router.push(route);
             // }
+        },
+        logOut(){
+            this.$router.push("/")
         },
     },
     computed: {

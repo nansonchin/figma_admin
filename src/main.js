@@ -4,6 +4,7 @@ import BootstrapVue3 from 'bootstrap-vue-3'
 import router from '@/system/engine/router.js'
 import element from 'element-plus'
 import i18n from './system/language/index.js'
+// import Chart from 'chart.js/auto';
 import 'swiper/css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
@@ -40,4 +41,5 @@ app.use(i18n)
 app.use(BootstrapVue3)
 app.use(router)
 app.use(element)
+// app.use(Chart)
 app.mount('#app')
