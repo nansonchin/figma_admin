@@ -36,6 +36,7 @@ import '@/assets/css/category.css'
 import '@/assets/css/payment.css'
 import '@/assets/css/home.css'
 
+
 const app = createApp(App)
 app.use(i18n)
 app.use(BootstrapVue3)

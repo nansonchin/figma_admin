@@ -129,7 +129,7 @@ export default {
     },methods:{
         goToHome(){
             this.$router.push("/home")
-        }
+        },
     },
 }
 </script>

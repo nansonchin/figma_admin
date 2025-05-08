@@ -12,7 +12,6 @@ import Member from "@/views/page/Tablayout/Member/member_layout.vue"
 import Payment from "@/views/page/Tablayout/Payment/payment_layout.vue"
 import Notification from "@/views/page/Tablayout/Notification/notification_layout.vue"
 import MessageContent from "@/views/page/PageDesign/Notification/news.vue"
-
 // import inbox from "@/views/page/PageDesign/Notification/inbox_message.vue"
 // import notification from "@/views/page/PageDesign/Notification/notification.vue"
 // import news from "@/views/page/PageDesign/Notification/news.vue"

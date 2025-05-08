@@ -59,7 +59,7 @@ export default {
             if (route) {
                 this.$router.push(route);
             }
-            console.log(this.activeIndex)
+            console.log('active Index'+this.activeIndex)
         },
         routeToIndex(path) {
             // Safely check the routes mapping.

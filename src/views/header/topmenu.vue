@@ -65,7 +65,6 @@ export default {
             { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         },
         addTab(targetName,customTitle){
-            console.log("AddTab", targetName);
             if(targetName.startsWith("Message-")){
                 const existingTab=this.editableTabs.find(tab=>tab.name === targetName);
                 if(existingTab){
@@ -116,7 +115,7 @@ export default {
     computed: {
        
     },created() {
-        console.log("editableTabsValue "+this.editableTabsValue)
+        console.log("editableTabsValue => "+JSON.stringify(this.editableTabs))
         this.getDateNow()
     },
 }
